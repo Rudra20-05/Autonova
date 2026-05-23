@@ -64,14 +64,14 @@ export function PillNav({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45 }}
         className={cn(
-          'fixed inset-x-0 top-3 z-50 [--nav-h:52px] [--pill-pad-x:14px] md:[--nav-h:48px] md:[--pill-pad-x:16px] lg:[--nav-h:44px] lg:[--pill-pad-x:18px]',
+          'fixed inset-x-0 top-3 z-50 [--nav-h:56px] [--pill-pad-x:16px] md:[--nav-h:52px] md:[--pill-pad-x:18px] lg:[--nav-h:48px] lg:[--pill-pad-x:20px]',
           className
         )}
         style={pillStyles}
       >
         <div
           className={cn(
-            'mx-auto flex h-[var(--nav-h)] w-[min(1200px,calc(100%-1.5rem))] items-center justify-between gap-3 rounded-full border border-border/60 bg-[color:var(--pill-shell)] px-2.5 shadow-[0_10px_28px_rgba(0,0,0,0.12)] backdrop-blur-xl transition-all duration-300 transition-colors',
+            'mx-auto flex h-[var(--nav-h)] w-[min(1200px,calc(100%-1.5rem))] items-center justify-between gap-3 rounded-full border border-border/60 bg-[color:var(--pill-shell)] px-2.5 shadow-[0_10px_28px_rgba(0,0,0,0.12)] backdrop-blur-xl transition-all duration-300 transition-colors md:grid md:grid-cols-[auto,1fr,auto] md:gap-4',
             isScrolled ? 'shadow-[0_14px_36px_rgba(0,0,0,0.16)]' : ''
           )}
         >
@@ -96,7 +96,7 @@ export function PillNav({
             </span>
           </Link>
 
-          <div className="flex h-full flex-1 items-center gap-2 overflow-x-auto rounded-full bg-transparent p-[3px] md:overflow-visible">
+          <div className="flex h-full flex-1 items-center gap-2 overflow-x-auto rounded-full bg-transparent p-[3px] md:justify-center md:overflow-visible">
             {items.map((item) => {
               const isActive = activeHref === item.href;
               return (
@@ -104,7 +104,7 @@ export function PillNav({
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'group relative inline-flex h-[calc(var(--nav-h)-6px)] items-center justify-center rounded-full bg-[color:var(--pill-bg)] px-[var(--pill-pad-x)] text-[12px] font-semibold text-[color:var(--pill-text)] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 active:translate-y-[1px] active:scale-[0.96] md:text-[13px]',
+                    'group relative inline-flex h-[calc(var(--nav-h)-8px)] items-center justify-center rounded-full bg-[color:var(--pill-bg)] px-[var(--pill-pad-x)] text-[13px] font-semibold text-[color:var(--pill-text)] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 active:translate-y-[1px] active:scale-[0.96] md:text-[14px]',
                     isActive && 'shadow-[0_8px_18px_rgba(0,0,0,0.14)]'
                   )}
                 >
