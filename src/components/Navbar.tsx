@@ -35,14 +35,6 @@ export function Navbar() {
           </Link>
         </>
       }
-      mobileFooter={
-        <Link
-          href="/contact"
-          className="flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-[var(--gradient-1-from)] to-[var(--gradient-1-to)] px-6 py-3 font-semibold text-white shadow-lg"
-        >
-          Book a Call
-        </Link>
-      }
     />
   );
 }
