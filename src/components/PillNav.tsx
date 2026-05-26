@@ -33,21 +33,21 @@ export function PillNav({
   items,
   activeHref,
   className,
-  baseColor = 'rgb(var(--bg-surface))',
-  pillColor = 'rgb(var(--bg-primary))',
-  hoveredPillTextColor = 'rgb(var(--text-primary))',
+  baseColor = 'var(--card)',
+  pillColor = 'var(--background)',
+  hoveredPillTextColor = 'var(--foreground)',
   pillTextColor,
   initialLoadAnimation = true,
   rightContent,
 }: PillNavProps) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const resolvedPillTextColor = pillTextColor ?? 'rgb(var(--text-primary))';
+  const resolvedPillTextColor = pillTextColor ?? 'var(--muted-foreground)';
   const pillStyles = {
     '--pill-shell': baseColor,
     '--pill-bg': pillColor,
     '--pill-text': resolvedPillTextColor,
     '--pill-hover-text': hoveredPillTextColor,
-    '--pill-accent': 'rgb(var(--primary))',
+    '--pill-accent': 'var(--primary)',
     '--pill-gap': '4px',
   } as CSSProperties;
 
@@ -82,7 +82,7 @@ export function PillNav({
                 alt={logoAlt}
                 width={36}
                 height={36}
-                className="h-[calc(var(--nav-h)-8px)] w-[calc(var(--nav-h)-8px)] rounded-full"
+                className="h-[calc(var(--nav-h)-8px)] w-[calc(var(--nav-h)-8px)] rounded-full dark:invert-0 invert transition-all duration-300"
                 priority
               />
             ) : (

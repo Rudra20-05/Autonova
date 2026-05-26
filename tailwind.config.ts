@@ -58,6 +58,13 @@ const config: Config = {
           '4': 'var(--chart-4)',
           '5': 'var(--chart-5)',
         },
+        // Legacy variable mappings to prevent layout breakage
+        'bg-primary': 'var(--background)',
+        'bg-surface': 'var(--card)',
+        'bg-surface-hover': 'var(--accent)',
+        'text-primary': 'var(--foreground)',
+        'text-secondary': 'var(--muted-foreground)',
+        'text-muted': 'var(--muted-foreground)',
       },
       borderRadius: {
         xl: 'calc(var(--radius) + 4px)',

@@ -8,9 +8,9 @@ interface BadgeProps {
 
 const variantStyles = {
   default: 'bg-bg-surface-hover text-text-secondary border-border',
-  primary: 'bg-primary/10 text-primary-light border-primary/20',
-  secondary: 'bg-secondary/10 text-secondary border-secondary/20',
-  accent: 'bg-accent/10 text-accent border-accent/20',
+  primary: 'bg-primary/10 text-primary border-primary/20',
+  secondary: 'bg-secondary/20 text-secondary-foreground border-secondary/30',
+  accent: 'bg-accent/20 text-accent-foreground border-accent/30',
 };
 
 export function Badge({ children, variant = 'default', className }: BadgeProps) {

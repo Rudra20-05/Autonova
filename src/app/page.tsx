@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/ui/Section';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -28,14 +28,29 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
 };
 
+const rotatingTexts = [
+  { text: 'AI-Powered Automation', className: 'gradient-text' },
+  { text: 'Stunning Web Products', className: 'gradient-text-warm' },
+  { text: 'Creative Ad Campaigns', className: 'gradient-text' },
+];
+
 export default function HomePage() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [textIndex, setTextIndex] = useState(0);
 
   // Auto-rotate testimonials
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Auto-rotate hero sub-headline
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTextIndex((prev) => (prev + 1) % rotatingTexts.length);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -79,15 +94,23 @@ export default function HomePage() {
 
             <motion.h1
               variants={fadeUp}
-              className="mb-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+              className="mb-6 text-4xl font-extrabold leading-none tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              We Build{' '}
-              <span className="gradient-text">AI-Powered</span>
-              <br />
-              Automation, Web Products
-              <br />
-              <span className="text-secondary">&</span>{' '}
-              <span className="gradient-text-warm">Creative Ads</span>
+              <span className="block mb-2">We Build</span>
+              <span className="block overflow-hidden py-1">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={textIndex}
+                    initial={{ y: '100%', opacity: 0 }}
+                    animate={{ y: '0%', opacity: 1 }}
+                    exit={{ y: '-100%', opacity: 0 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className={`block w-full leading-tight ${rotatingTexts[textIndex].className}`}
+                  >
+                    {rotatingTexts[textIndex].text}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
             </motion.h1>
 
             <motion.p
@@ -115,10 +138,16 @@ export default function HomePage() {
       </section>
 
       {/* ===== TECH STACK STRIP ===== */}
-      <Section background="surface">
-        <p className="mb-4 text-center text-sm font-medium uppercase tracking-widest text-text-muted">
-          Powered by modern technology
-        </p>
+      <Section background="surface" fullWidth={true} className="!py-12 overflow-hidden">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 mb-6 flex justify-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-bg-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-text-secondary shadow-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+            </span>
+            Tech Stack & Integrations
+          </span>
+        </div>
         <TechStackStrip />
       </Section>
 
@@ -292,7 +321,7 @@ export default function HomePage() {
           <Button
             href="/contact"
             size="lg"
-            className="!bg-white !text-[var(--gradient-1-from)] shadow-xl hover:!bg-white/90"
+            className="!bg-white !bg-none !text-black shadow-xl hover:!bg-white/90 hover:scale-[1.02] transition-all"
           >
             Book a Free Discovery Call
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

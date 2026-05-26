@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Atkinson_Hyperlegible_Mono, Lora, IBM_Plex_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans, Lora, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 
-const fontSans = Atkinson_Hyperlegible_Mono({
+const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',

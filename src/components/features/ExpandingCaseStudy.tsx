@@ -14,6 +14,8 @@ const categoryColors: Record<string, 'primary' | 'secondary' | 'accent'> = {
   'AI Automation': 'primary',
   'Web Development': 'secondary',
   'AI Creative Ads': 'accent',
+  'Website Development & Brand Support': 'primary',
+  'Product Catalog & Business Website Development': 'secondary',
 };
 
 export function ExpandingCaseStudy({ study, index }: ExpandingCaseStudyProps) {
@@ -33,7 +35,7 @@ export function ExpandingCaseStudy({ study, index }: ExpandingCaseStudyProps) {
         {/* Header */}
         <div className="p-6">
           <div className="mb-3 flex items-center gap-3">
-            <Badge variant={categoryColors[study.category]}>{study.category}</Badge>
+            <Badge variant={categoryColors[study.category] || 'default'}>{study.category}</Badge>
           </div>
 
           <h3 className="mb-2 text-xl font-bold text-text-primary group-hover:text-primary-light transition-colors">
