@@ -1,28 +1,6 @@
-export type ClassValue = string | number | boolean | undefined | null | ClassValue[] | Record<string, boolean | undefined | null>;
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
 
-export function cn(...inputs: ClassValue[]): string {
-  const classes: string[] = [];
-  for (const input of inputs) {
-    if (!input) continue;
-    if (typeof input === 'string') {
-      classes.push(input);
-    } else if (typeof input === 'number') {
-      classes.push(String(input));
-    } else if (Array.isArray(input)) {
-      const inner = cn(...input);
-      if (inner) classes.push(inner);
-    } else if (typeof input === 'object') {
-      for (const [key, value] of Object.entries(input as Record<string, boolean | undefined | null>)) {
-        if (value) classes.push(key);
-      }
-    }
-  }
-  return classes.join(' ');
-}
-
-export function formatNumber(num: number): string {
-  if (num >= 1000) {
-    return new Intl.NumberFormat('en-US', { notation: 'compact' }).format(num);
-  }
-  return num.toString();
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }
