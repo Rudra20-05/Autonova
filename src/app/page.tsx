@@ -217,7 +217,7 @@ export default function HomePage() {
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.slice(0, 3).map((study, index) => (
-            <ExpandingCaseStudy key={study.id} study={study} index={index} />
+            <ExpandingCaseStudy key={study.id} study={study} index={index} isExpandable={false} />
           ))}
         </div>
         <div className="mt-8 text-center">

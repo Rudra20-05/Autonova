@@ -194,38 +194,9 @@ export default function ContactPage() {
                 </motion.div>
               )}
             </form>
-          </motion.div>
-
-          {/* Right Column */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
-          >
-            {/* Calendly Embed */}
-            <div className="rounded-2xl border border-border bg-bg-surface p-6">
-              <h3 className="mb-2 text-xl font-bold text-text-primary">
-                📅 Book a Free Discovery Call
-              </h3>
-              <p className="mb-4 text-sm text-text-secondary">
-                Skip the form — jump straight to a 30-minute strategy session with our team.
-              </p>
-              <div className="overflow-hidden rounded-xl border border-border">
-                <iframe
-                  src={calendlyUrl}
-                  width="100%"
-                  height="600"
-                  frameBorder="0"
-                  title="Schedule a discovery call with AutoNova"
-                  className="bg-white"
-                />
-              </div>
-            </div>
 
             {/* Direct Contact Info */}
-            <div className="rounded-2xl border border-border bg-bg-surface p-6">
+            <div className="mt-10 rounded-2xl border border-border bg-bg-surface p-6">
               <h3 className="mb-4 text-xl font-bold text-text-primary">
                 Direct Contact
               </h3>
@@ -267,6 +238,35 @@ export default function ContactPage() {
                     <p className="text-sm text-text-secondary">Within 24 hours, guaranteed</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-8"
+          >
+            {/* Calendly Embed */}
+            <div className="rounded-2xl border border-border bg-bg-surface p-6">
+              <h3 className="mb-2 text-xl font-bold text-text-primary">
+                📅 Book a Free Discovery Call
+              </h3>
+              <p className="mb-4 text-sm text-text-secondary">
+                Skip the form — jump straight to a 30-minute strategy session with our team.
+              </p>
+              <div className="overflow-hidden rounded-xl border border-border">
+                <iframe
+                  src={calendlyUrl}
+                  width="100%"
+                  height="600"
+                  frameBorder="0"
+                  title="Schedule a discovery call with AutoNova"
+                  className="bg-white"
+                />
               </div>
             </div>
           </motion.div>

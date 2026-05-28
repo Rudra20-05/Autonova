@@ -5,21 +5,19 @@ import { motion } from 'framer-motion';
 
 const footerLinks = {
   services: [
-    { label: 'WORKFLOW AUTOMATION', href: '/services#ai-automation' },
-    { label: 'AI NEURAL CHATBOTS', href: '/services' },
-    { label: 'CRM INTEGRATION', href: '/services' },
-    { label: 'CUSTOM PROTOCOLS', href: '/services' },
+    { label: 'AI AUTOMATION', href: '/services#ai-automation' },
+    { label: 'WEB DEVELOPMENT', href: '/services#web-development' },
+    { label: 'AI CREATIVE ADS', href: '/services#ai-creative-ads' },
   ],
   company: [
-    { label: 'ABOUT SYSTEMS', href: '/about' },
-    { label: 'INTELLIGENCE', href: '/portfolio' },
+    { label: 'ABOUT US', href: '/about' },
+    { label: 'PORTFOLIO', href: '/portfolio' },
     { label: 'CONTACT', href: '/contact' },
-    { label: 'CAREERS', href: '/about' },
   ],
   connect: [
     { label: 'LINKEDIN', href: 'https://linkedin.com', external: true },
     { label: 'INSTAGRAM', href: 'https://instagram.com', external: true },
-    { label: 'X', href: 'https://x.com', external: true },
+    { label: 'X (TWITTER)', href: 'https://x.com', external: true },
     { label: 'EMAIL', href: 'mailto:contact@aiautonova.com' },
   ],
 };
@@ -58,7 +56,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-xs tracking-wider text-text-secondary transition-colors hover:text-primary"
+                    className="text-xs tracking-wider text-text-secondary transition-colors hover:text-primary-light hover:underline"
                   >
                     {link.label}
                   </Link>
@@ -77,7 +75,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-xs tracking-wider text-text-secondary transition-colors hover:text-primary"
+                    className="text-xs tracking-wider text-text-secondary transition-colors hover:text-primary-light hover:underline"
                   >
                     {link.label}
                   </Link>
@@ -98,7 +96,7 @@ export function Footer() {
                     href={link.href}
                     target={link.external ? '_blank' : undefined}
                     rel={link.external ? 'noopener noreferrer' : undefined}
-                    className="text-xs tracking-wider text-text-secondary transition-colors hover:text-primary"
+                    className="text-xs tracking-wider text-text-secondary transition-colors hover:text-primary-light hover:underline"
                   >
                     {link.label}
                   </a>

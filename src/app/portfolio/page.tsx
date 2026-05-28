@@ -36,9 +36,9 @@ export default function PortfolioPage() {
 
       {/* Case Studies Grid */}
       <Section>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-8 grid-cols-1">
           {caseStudies.map((study, index) => (
-            <ExpandingCaseStudy key={study.id} study={study} index={index} />
+            <ExpandingCaseStudy key={study.id} study={study} index={index} isExpandable={true} />
           ))}
         </div>
       </Section>
