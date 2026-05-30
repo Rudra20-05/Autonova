@@ -1,0 +1,35 @@
+/**
+ * Section.module.css
+ * ─────────────────────────────────────────────────────────
+ * Autonova AI — Section Component Styles
+ * ─────────────────────────────────────────────────────────
+ */
+
+.section {
+  position: relative;
+  width: 100%;
+}
+
+/* Vertical padding variants */
+.padding-none { padding-block: 0; }
+.padding-sm   { padding-block: var(--section-padding-sm); }
+.padding-md   { padding-block: var(--section-padding-md); }
+.padding-lg   { padding-block: var(--section-padding-lg); }
+.padding-xl   { padding-block: var(--section-padding-xl); }
+
+/* Background variants */
+.bg-transparent { background: transparent; }
+.bg-base        { background: var(--color-bg-base); }
+.bg-subtle      { background: var(--color-bg-subtle); }
+.bg-muted       { background: var(--color-bg-muted); }
+.bg-elevated    { background: var(--color-bg-elevated); }
+
+/* With a subtle top border */
+.bordered {
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* Overflow clip — for animated elements that may bleed */
+.clipped {
+  overflow: hidden;
+}

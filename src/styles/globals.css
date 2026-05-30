@@ -1,0 +1,129 @@
+/**
+ * globals.css
+ * ─────────────────────────────────────────────────────────
+ * Autonova AI — Global Stylesheet Entry Point
+ * Imports all layers in correct cascade order.
+ * This is the ONLY file imported directly into layout.tsx.
+ * ─────────────────────────────────────────────────────────
+ */
+
+/* Layer 1: Design tokens — must be first */
+@import './tokens.css';
+
+/* Layer 2: Reset — normalize before anything else */
+@import './reset.css';
+
+/* Layer 3: Typography — base type setup */
+@import './typography.css';
+
+/* Layer 4: Animations — keyframes & ambient classes */
+@import './animations.css';
+
+/* Layer 5: Utilities — helper classes */
+@import './utilities.css';
+
+/* ─────────────────────────────────────────
+ * GLOBAL BASE STYLES
+ * Applied after token imports so variables resolve.
+ * ───────────────────────────────────────── */
+
+html {
+  color-scheme: dark;
+  background-color: var(--color-bg-base);
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-fg-primary);
+  background-color: var(--color-bg-base);
+  /* Prevent layout shift from scrollbar */
+  scrollbar-gutter: stable;
+}
+
+/* ─────────────────────────────────────────
+ * APP ROOT
+ * ───────────────────────────────────────── */
+
+#root,
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─────────────────────────────────────────
+ * AMBIENT BACKGROUND GLOW
+ * Applied globally — creates cinematic depth.
+ * ───────────────────────────────────────── */
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vmax;
+  height: 60vmax;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(99, 68, 245, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: var(--z-below);
+}
+
+/* ─────────────────────────────────────────
+ * PROSE CONTENT STYLES
+ * Rich text / article content
+ * ───────────────────────────────────────── */
+
+.prose {
+  max-width: 68ch;
+  color: var(--color-fg-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.prose p + p {
+  margin-top: var(--space-4);
+}
+
+.prose h2 + p,
+.prose h3 + p {
+  margin-top: var(--space-3);
+}
+
+.prose strong {
+  color: var(--color-fg-primary);
+  font-weight: var(--weight-semibold);
+}
+
+.prose a {
+  color: var(--color-brand-400);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color var(--transition-fast);
+}
+
+.prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ─────────────────────────────────────────
+ * CUSTOM PROPERTIES COMPUTED AT RUNTIME
+ * These react to JS for parallax / scroll
+ * ───────────────────────────────────────── */
+
+:root {
+  --scroll-y: 0;
+  --mouse-x: 0.5;
+  --mouse-y: 0.5;
+  --viewport-width: 1440px;
+  --viewport-height: 900px;
+}
