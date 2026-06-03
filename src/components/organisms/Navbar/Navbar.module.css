@@ -17,10 +17,10 @@
 }
 
 .navbar.scrolled {
-  background-color: rgba(4, 4, 4, 0.78);
-  backdrop-filter: blur(var(--blur-xl));
-  -webkit-backdrop-filter: blur(var(--blur-xl));
-  border-bottom-color: var(--color-border-subtle);
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
 }
 
 .logoArea,
