@@ -166,16 +166,12 @@ export function useReveal({
   useEffect(() => {
     if (!inView) return;
 
-    if (delay > 0) {
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-        setHasBeenVisible(true);
-      }, delay);
-      return () => clearTimeout(timer);
-    }
+    const timer = window.setTimeout(() => {
+      setIsVisible(true);
+      setHasBeenVisible(true);
+    }, delay);
 
-    setIsVisible(true);
-    setHasBeenVisible(true);
+    return () => clearTimeout(timer);
   }, [inView, delay]);
 
   return { ref, isVisible, hasBeenVisible };

@@ -53,17 +53,19 @@ const BP = {
  * const { width, height } = useViewportSize();
  */
 export function useViewportSize(): ViewportSize {
-  const [size, setSize] = useState<ViewportSize>({ width: 0, height: 0 });
+  const [size, setSize] = useState<ViewportSize>(() => {
+    if (typeof window === 'undefined') {
+      return { width: 0, height: 0 };
+    }
+
+    return { width: window.innerWidth, height: window.innerHeight };
+  });
 
   const handleResize = useCallback(() => {
     setSize({ width: window.innerWidth, height: window.innerHeight });
   }, []);
 
   useEffect(() => {
-    // Set initial size
-    handleResize();
-
-    // Debounced resize listener
     let rafId: number;
     const debouncedResize = () => {
       cancelAnimationFrame(rafId);
@@ -125,8 +127,6 @@ export function useMediaQuery(query: string): boolean {
   useEffect(() => {
     const mediaQuery = window.matchMedia(query);
     const handleChange = (e: MediaQueryListEvent) => setMatches(e.matches);
-
-    setMatches(mediaQuery.matches);
 
     if (mediaQuery.addEventListener) {
       mediaQuery.addEventListener('change', handleChange);
