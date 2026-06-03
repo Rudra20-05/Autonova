@@ -4,14 +4,15 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Logo } from '@/components/atoms/Logo';
 import { cn } from '@/lib/cn';
+import { TextRoll } from '@/components/atoms/TextRoll';
 import { MobileMenu, type NavItem } from './MobileMenu';
 import styles from './Navbar.module.css';
 
 const PRIMARY_LINKS: NavItem[] = [
   { href: '#about', label: 'About' },
   { href: '#work', label: 'Work' },
-  { href: '#process', label: 'Recognition' },
-  { href: '#contact', label: 'Contact Us' },
+  { href: '#process', label: 'Process' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 const SECONDARY_LINKS: NavItem[] = [{ href: '#home', label: 'Archive' }];
@@ -134,10 +135,10 @@ export function Navbar() {
                     event.preventDefault();
                     handleAnchorClick(link.href);
                   }}
-                  className={cn(styles.navLink, activeHref === link.href && styles.active)}
+                  className={cn(styles.navLink, 'textRollTrigger', activeHref === link.href && styles.active)}
                   aria-current={activeHref === link.href ? 'page' : undefined}
                 >
-                  {link.label}
+                  <TextRoll text={link.label} />
                 </a>
               </motion.li>
             ))}
@@ -161,11 +162,12 @@ export function Navbar() {
                   className={cn(
                     styles.navLink,
                     styles.secondary,
+                    'textRollTrigger',
                     activeHref === link.href && styles.active,
                   )}
                   aria-current={activeHref === link.href ? 'page' : undefined}
                 >
-                  {link.label}
+                  <TextRoll text={link.label} />
                 </a>
               </motion.li>
             ))}
