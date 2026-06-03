@@ -1,0 +1,1 @@
+export { StudioHero } from './StudioHero';
