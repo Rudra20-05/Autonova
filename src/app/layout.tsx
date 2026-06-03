@@ -1,23 +1,13 @@
-/**
- * layout.tsx
- * ─────────────────────────────────────────────────────────
- * Autonova AI — Root Layout
- * Next.js App Router root layout.
- * Configures fonts, metadata, viewport, and global providers.
- * ─────────────────────────────────────────────────────────
- */
-
 import type { Metadata, Viewport } from 'next';
-import { Inter, Syne, JetBrains_Mono } from 'next/font/google';
+import {
+  Cormorant_Garamond,
+  Inter,
+  JetBrains_Mono,
+} from 'next/font/google';
+import { Navbar } from '@/components/organisms/Navbar';
 import { SmoothScrollProvider } from '@/providers/SmoothScrollProvider';
 import '@/styles/globals.css';
 
-// ─────────────────────────────────────────
-// FONT DEFINITIONS
-// Self-hosted via next/font — zero layout shift, no Google requests at runtime.
-// ─────────────────────────────────────────
-
-/** Primary body / UI font — Inter variable */
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -25,16 +15,15 @@ const inter = Inter({
   fallback: ['system-ui', 'sans-serif'],
 });
 
-/** Display / heading font — Syne (bold geometric) */
-const syne = Syne({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-syne',
-  fallback: ['system-ui', 'sans-serif'],
-  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-cormorant',
+  fallback: ['Georgia', 'Times New Roman', 'serif'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
 });
 
-/** Monospace font — JetBrains Mono */
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
@@ -43,43 +32,33 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ['400', '500', '600', '700'],
 });
 
-// ─────────────────────────────────────────
-// METADATA
-// ─────────────────────────────────────────
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://autonova.ai'),
-
   title: {
-    default: 'Autonova AI — Intelligent Automation for the Modern Enterprise',
+    default: 'Autonova AI - Digital Intelligence Studio',
     template: '%s | Autonova AI',
   },
-
   description:
-    'Autonova AI delivers cutting-edge artificial intelligence and automation solutions that transform how enterprises operate, scale, and innovate.',
-
+    'Autonova AI composes premium digital systems across AI product design, web engineering, and intelligent interfaces.',
   keywords: [
-    'AI automation',
-    'artificial intelligence',
-    'enterprise AI',
-    'machine learning',
-    'workflow automation',
-    'intelligent systems',
-    'Autonova',
+    'Autonova AI',
+    'digital intelligence',
+    'creative systems',
+    'AI product design',
+    'web engineering',
+    'intelligent interfaces',
   ],
-
   authors: [{ name: 'Autonova AI', url: 'https://autonova.ai' }],
   creator: 'Autonova AI',
   publisher: 'Autonova AI',
-
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://autonova.ai',
     siteName: 'Autonova AI',
-    title: 'Autonova AI — Intelligent Automation for the Modern Enterprise',
+    title: 'Autonova AI - Digital Intelligence Studio',
     description:
-      'Cutting-edge AI and automation solutions that transform how enterprises operate, scale, and innovate.',
+      'Premium digital intelligence systems blending strategy, design, engineering, and AI.',
     images: [
       {
         url: '/og-image.jpg',
@@ -89,63 +68,31 @@ export const metadata: Metadata = {
       },
     ],
   },
-
   twitter: {
     card: 'summary_large_image',
     site: '@autonovaai',
     creator: '@autonovaai',
-    title: 'Autonova AI — Intelligent Automation',
+    title: 'Autonova AI - Digital Intelligence Studio',
     description:
-      'Cutting-edge AI and automation solutions for the modern enterprise.',
+      'Premium digital intelligence systems blending strategy, design, engineering, and AI.',
     images: ['/og-image.jpg'],
   },
-
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
-
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
-    shortcut: '/favicon-32x32.png',
-  },
-
-  manifest: '/site.webmanifest',
-
   alternates: {
     canonical: 'https://autonova.ai',
   },
 };
 
-// ─────────────────────────────────────────
-// VIEWPORT
-// ─────────────────────────────────────────
-
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#050508' },
-    { media: '(prefers-color-scheme: light)', color: '#050508' },
-  ],
+  themeColor: '#040404',
   colorScheme: 'dark',
 };
-
-// ─────────────────────────────────────────
-// ROOT LAYOUT
-// ─────────────────────────────────────────
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -155,61 +102,32 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${syne.variable} ${jetbrainsMono.variable}`}
+      className={`${inter.variable} ${cormorant.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
-      <body>
-        {/* ── Noise texture overlay — cinematic grain effect ── */}
-        <div
-          className="noise-overlay"
-          aria-hidden="true"
-          role="presentation"
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <div className="noise-overlay" aria-hidden="true" role="presentation" />
 
-        {/* ── Smooth scroll provider ── */}
         <SmoothScrollProvider>
-          {/* ── Skip to content — accessibility ── */}
-          <a
-            href="#main-content"
-            className="sr-only"
-            style={{
-              /* Make visible on focus for keyboard users */
-              /* Can't use CSS Module here as it's in layout — handled via globals.css */
-            }}
-            onFocus={(e) => {
-              const target = e.currentTarget;
-              target.style.position = 'fixed';
-              target.style.top = '1rem';
-              target.style.left = '1rem';
-              target.style.zIndex = '9999';
-              target.style.padding = '0.75rem 1.5rem';
-              target.style.background = 'var(--color-brand-500)';
-              target.style.color = '#fff';
-              target.style.borderRadius = 'var(--radius-md)';
-              target.style.fontFamily = 'var(--font-sans)';
-              target.style.fontWeight = '600';
-              target.style.width = 'auto';
-              target.style.height = 'auto';
-              target.style.clip = 'auto';
-              target.style.overflow = 'visible';
-              target.style.whiteSpace = 'normal';
-            }}
-            onBlur={(e) => {
-              const target = e.currentTarget;
-              target.style.position = 'absolute';
-              target.style.width = '1px';
-              target.style.height = '1px';
-              target.style.overflow = 'hidden';
-              target.style.clip = 'rect(0,0,0,0)';
-            }}
-          >
+          <a href="#main-content" className="sr-only">
             Skip to main content
           </a>
 
-          {/* ── Main content mount point ── */}
-          <main id="main-content">
-            {children}
-          </main>
+          <Navbar />
+
+          <main id="main-content">{children}</main>
         </SmoothScrollProvider>
       </body>
     </html>

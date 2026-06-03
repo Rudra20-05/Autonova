@@ -1,345 +1,242 @@
-/**
- * tokens.css
- * ─────────────────────────────────────────────────────────
- * Autonova AI — Global Design Tokens
- * Single source of truth for every design value.
- * Consumed by all other style sheets via CSS custom properties.
- * ─────────────────────────────────────────────────────────
- */
-
 :root {
-  /* ─────────────────────────────────────────
-   * COLOR SYSTEM
-   * Primary palette: Deep space / cinematic dark
-   * ───────────────────────────────────────── */
+  --color-black: #000000;
+  --color-white: #ffffff;
 
-  /* Base neutrals */
-  --color-black:         #000000;
-  --color-white:         #ffffff;
+  --color-bg-base: #040404;
+  --color-bg-subtle: #090909;
+  --color-bg-muted: #101010;
+  --color-bg-elevated: #171717;
+  --color-bg-overlay: #1c1c1c;
+  --color-bg-glass: rgba(10, 10, 10, 0.78);
+  --color-bg-glass-light: rgba(255, 255, 255, 0.03);
 
-  /* Background scale — darkest to lightest */
-  --color-bg-base:       #050508;
-  --color-bg-subtle:     #0a0a10;
-  --color-bg-muted:      #0f0f18;
-  --color-bg-elevated:   #141420;
-  --color-bg-overlay:    #1a1a2a;
-  --color-bg-glass:      rgba(15, 15, 24, 0.72);
-  --color-bg-glass-light: rgba(255, 255, 255, 0.04);
+  --color-fg-primary: #f1efe6;
+  --color-fg-secondary: #b6b1a6;
+  --color-fg-tertiary: #716d64;
+  --color-fg-disabled: #403e39;
+  --color-fg-inverse: #050508;
 
-  /* Foreground scale */
-  --color-fg-primary:    #f0f0fa;
-  --color-fg-secondary:  #a8a8c0;
-  --color-fg-tertiary:   #6b6b88;
-  --color-fg-disabled:   #3a3a52;
-  --color-fg-inverse:    #050508;
+  --color-editorial: #efece2;
+  --color-editorial-soft: #d8d2c3;
+  --color-accent-lime: #c5f135;
 
-  /* Brand — Electric violet to aurora blue */
-  --color-brand-50:      #f0eeff;
-  --color-brand-100:     #e0dcff;
-  --color-brand-200:     #c4bcff;
-  --color-brand-300:     #a090ff;
-  --color-brand-400:     #7c5cfc;
-  --color-brand-500:     #6344f5;   /* Primary brand */
-  --color-brand-600:     #4f30e0;
-  --color-brand-700:     #3b1fc8;
-  --color-brand-800:     #2d16a8;
-  --color-brand-900:     #1e0d80;
+  --ticker-height: 24px;
 
-  /* Accent — Aurora cyan */
-  --color-accent-50:     #e6fffe;
-  --color-accent-100:    #ccfffe;
-  --color-accent-200:    #99fffd;
-  --color-accent-300:    #5cefee;
-  --color-accent-400:    #2ed8d9;
-  --color-accent-500:    #0ec8c8;   /* Primary accent */
-  --color-accent-600:    #0aa8a8;
-  --color-accent-700:    #078080;
-  --color-accent-800:    #045858;
-  --color-accent-900:    #023030;
+  --color-brand-50: #f4f5ec;
+  --color-brand-100: #e8ead7;
+  --color-brand-200: #d9ddbb;
+  --color-brand-300: #c8cea0;
+  --color-brand-400: #b3bb80;
+  --color-brand-500: #9ca566;
+  --color-brand-600: #7e8652;
+  --color-brand-700: #5f6640;
+  --color-brand-800: #454a2f;
+  --color-brand-900: #2c3020;
 
-  /* Semantic colors */
-  --color-success:       #22c55e;
-  --color-success-bg:    rgba(34, 197, 94, 0.12);
-  --color-warning:       #f59e0b;
-  --color-warning-bg:    rgba(245, 158, 11, 0.12);
-  --color-error:         #ef4444;
-  --color-error-bg:      rgba(239, 68, 68, 0.12);
-  --color-info:          #3b82f6;
-  --color-info-bg:       rgba(59, 130, 246, 0.12);
+  --color-accent-50: #f2f7ea;
+  --color-accent-100: #e1ecd0;
+  --color-accent-200: #c3d59a;
+  --color-accent-300: #a8c46c;
+  --color-accent-400: #94b04f;
+  --color-accent-500: #7d993b;
+  --color-accent-600: #60782d;
+  --color-accent-700: #465720;
+  --color-accent-800: #2d3814;
+  --color-accent-900: #171d0a;
 
-  /* Border / divider */
-  --color-border-subtle:  rgba(255, 255, 255, 0.06);
-  --color-border-default: rgba(255, 255, 255, 0.10);
-  --color-border-strong:  rgba(255, 255, 255, 0.18);
-  --color-border-brand:   rgba(99, 68, 245, 0.40);
+  --color-success: #22c55e;
+  --color-success-bg: rgba(34, 197, 94, 0.12);
+  --color-warning: #f59e0b;
+  --color-warning-bg: rgba(245, 158, 11, 0.12);
+  --color-error: #ef4444;
+  --color-error-bg: rgba(239, 68, 68, 0.12);
+  --color-info: #3b82f6;
+  --color-info-bg: rgba(59, 130, 246, 0.12);
 
-  /* Gradient presets */
-  --gradient-brand:        linear-gradient(135deg, var(--color-brand-500) 0%, var(--color-accent-500) 100%);
-  --gradient-brand-soft:   linear-gradient(135deg, rgba(99, 68, 245, 0.15) 0%, rgba(14, 200, 200, 0.15) 100%);
-  --gradient-hero:         radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99, 68, 245, 0.35) 0%, transparent 70%);
-  --gradient-glow-brand:   radial-gradient(circle, rgba(99, 68, 245, 0.6) 0%, transparent 70%);
-  --gradient-glow-accent:  radial-gradient(circle, rgba(14, 200, 200, 0.5) 0%, transparent 70%);
-  --gradient-surface:      linear-gradient(180deg, var(--color-bg-elevated) 0%, var(--color-bg-muted) 100%);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-border-brand: rgba(197, 241, 53, 0.24);
+
+  --gradient-brand: linear-gradient(135deg, var(--color-brand-400) 0%, var(--color-accent-lime) 100%);
+  --gradient-brand-soft: linear-gradient(135deg, rgba(156, 165, 102, 0.12) 0%, rgba(197, 241, 53, 0.1) 100%);
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  --gradient-glow-brand: radial-gradient(circle, rgba(197, 241, 53, 0.18) 0%, transparent 70%);
+  --gradient-glow-accent: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+  --gradient-surface: linear-gradient(180deg, #111111 0%, #080808 100%);
   --gradient-noise-overlay: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
 
-  /* ─────────────────────────────────────────
-   * TYPOGRAPHY SYSTEM
-   * ───────────────────────────────────────── */
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-cormorant), 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-editorial: var(--font-cormorant), 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Font families */
-  --font-sans:      var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display:   var(--font-syne), 'Syne', var(--font-inter), sans-serif;
-  --font-mono:      var(--font-jetbrains-mono), 'JetBrains Mono', 'Fira Code', monospace;
+  --text-xs: clamp(0.6875rem, 0.65rem + 0.2vw, 0.75rem);
+  --text-sm: clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);
+  --text-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
+  --text-md: clamp(1rem, 0.96rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.35rem + 0.8vw, 1.875rem);
+  --text-3xl: clamp(1.875rem, 1.65rem + 1.2vw, 2.25rem);
+  --text-4xl: clamp(2.25rem, 1.9rem + 1.8vw, 3rem);
+  --text-5xl: clamp(3rem, 2.4rem + 3vw, 4rem);
+  --text-6xl: clamp(3.75rem, 2.8rem + 4.8vw, 5.5rem);
+  --text-7xl: clamp(4.5rem, 3.2rem + 6.5vw, 7rem);
 
-  /* Type scale — fluid clamped values */
-  --text-xs:        clamp(0.6875rem, 0.65rem + 0.2vw, 0.75rem);   /* 11–12px */
-  --text-sm:        clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);  /* 13–14px */
-  --text-base:      clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);       /* 15–16px */
-  --text-md:        clamp(1rem, 0.96rem + 0.25vw, 1.125rem);      /* 16–18px */
-  --text-lg:        clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);    /* 18–20px */
-  --text-xl:        clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);      /* 20–24px */
-  --text-2xl:       clamp(1.5rem, 1.35rem + 0.8vw, 1.875rem);     /* 24–30px */
-  --text-3xl:       clamp(1.875rem, 1.65rem + 1.2vw, 2.25rem);    /* 30–36px */
-  --text-4xl:       clamp(2.25rem, 1.9rem + 1.8vw, 3rem);         /* 36–48px */
-  --text-5xl:       clamp(3rem, 2.4rem + 3vw, 4rem);              /* 48–64px */
-  --text-6xl:       clamp(3.75rem, 2.8rem + 4.8vw, 5.5rem);       /* 60–88px */
-  --text-7xl:       clamp(4.5rem, 3.2rem + 6.5vw, 7rem);          /* 72–112px */
-
-  /* Font weights */
-  --weight-thin:      100;
-  --weight-light:     300;
-  --weight-regular:   400;
-  --weight-medium:    500;
-  --weight-semibold:  600;
-  --weight-bold:      700;
+  --weight-thin: 100;
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
   --weight-extrabold: 800;
-  --weight-black:     900;
+  --weight-black: 900;
 
-  /* Line heights */
-  --leading-none:     1;
-  --leading-tight:    1.1;
-  --leading-snug:     1.25;
-  --leading-normal:   1.5;
-  --leading-relaxed:  1.65;
-  --leading-loose:    1.8;
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+  --leading-loose: 1.8;
 
-  /* Letter spacing */
   --tracking-tighter: -0.05em;
-  --tracking-tight:   -0.025em;
-  --tracking-normal:   0em;
-  --tracking-wide:     0.025em;
-  --tracking-wider:    0.05em;
-  --tracking-widest:   0.12em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.12em;
 
-  /* ─────────────────────────────────────────
-   * SPACING SYSTEM — 4px base grid
-   * ───────────────────────────────────────── */
+  --space-px: 1px;
+  --space-0: 0px;
+  --space-0-5: 0.125rem;
+  --space-1: 0.25rem;
+  --space-1-5: 0.375rem;
+  --space-2: 0.5rem;
+  --space-2-5: 0.625rem;
+  --space-3: 0.75rem;
+  --space-3-5: 0.875rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-9: 2.25rem;
+  --space-10: 2.5rem;
+  --space-11: 2.75rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-18: 4.5rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-32: 8rem;
+  --space-36: 9rem;
+  --space-40: 10rem;
+  --space-48: 12rem;
+  --space-56: 14rem;
+  --space-64: 16rem;
 
-  --space-px:     1px;
-  --space-0:      0px;
-  --space-0-5:    0.125rem;   /* 2px  */
-  --space-1:      0.25rem;    /* 4px  */
-  --space-1-5:    0.375rem;   /* 6px  */
-  --space-2:      0.5rem;     /* 8px  */
-  --space-2-5:    0.625rem;   /* 10px */
-  --space-3:      0.75rem;    /* 12px */
-  --space-3-5:    0.875rem;   /* 14px */
-  --space-4:      1rem;       /* 16px */
-  --space-5:      1.25rem;    /* 20px */
-  --space-6:      1.5rem;     /* 24px */
-  --space-7:      1.75rem;    /* 28px */
-  --space-8:      2rem;       /* 32px */
-  --space-9:      2.25rem;    /* 36px */
-  --space-10:     2.5rem;     /* 40px */
-  --space-11:     2.75rem;    /* 44px */
-  --space-12:     3rem;       /* 48px */
-  --space-14:     3.5rem;     /* 56px */
-  --space-16:     4rem;       /* 64px */
-  --space-18:     4.5rem;     /* 72px */
-  --space-20:     5rem;       /* 80px */
-  --space-24:     6rem;       /* 96px */
-  --space-28:     7rem;       /* 112px */
-  --space-32:     8rem;       /* 128px */
-  --space-36:     9rem;       /* 144px */
-  --space-40:     10rem;      /* 160px */
-  --space-48:     12rem;      /* 192px */
-  --space-56:     14rem;      /* 224px */
-  --space-64:     16rem;      /* 256px */
+  --section-padding-sm: clamp(var(--space-16), 8vw, var(--space-24));
+  --section-padding-md: clamp(var(--space-24), 10vw, var(--space-36));
+  --section-padding-lg: clamp(var(--space-32), 14vw, var(--space-56));
+  --section-padding-xl: clamp(var(--space-40), 18vw, var(--space-64));
 
-  /* Section vertical rhythm — fluid */
-  --section-padding-sm:  clamp(var(--space-16), 8vw, var(--space-24));
-  --section-padding-md:  clamp(var(--space-24), 10vw, var(--space-36));
-  --section-padding-lg:  clamp(var(--space-32), 14vw, var(--space-56));
-  --section-padding-xl:  clamp(var(--space-40), 18vw, var(--space-64));
+  --container-xs: 20rem;
+  --container-sm: 36rem;
+  --container-md: 48rem;
+  --container-lg: 64rem;
+  --container-xl: 80rem;
+  --container-2xl: 90rem;
+  --container-3xl: 100rem;
+  --container-px: clamp(var(--space-4), 5vw, var(--space-12));
 
-  /* Container max widths */
-  --container-xs:   20rem;    /* 320px */
-  --container-sm:   36rem;    /* 576px */
-  --container-md:   48rem;    /* 768px */
-  --container-lg:   64rem;    /* 1024px */
-  --container-xl:   80rem;    /* 1280px */
-  --container-2xl:  90rem;    /* 1440px */
-  --container-3xl:  100rem;   /* 1600px */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
+  --radius-full: 9999px;
 
-  /* Container horizontal padding — fluid */
-  --container-px:   clamp(var(--space-4), 5vw, var(--space-12));
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.2);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.6);
+  --shadow-brand: 0 0 0 1px var(--color-border-brand), 0 0 20px rgba(197, 241, 53, 0.18), 0 0 60px rgba(197, 241, 53, 0.08);
+  --shadow-brand-lg: 0 0 0 1px var(--color-border-brand), 0 0 40px rgba(197, 241, 53, 0.22), 0 0 100px rgba(197, 241, 53, 0.1);
+  --shadow-glow-accent: 0 0 20px rgba(255, 255, 255, 0.16), 0 0 60px rgba(255, 255, 255, 0.1);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-border-subtle), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
-  /* ─────────────────────────────────────────
-   * RADIUS SYSTEM
-   * ───────────────────────────────────────── */
+  --z-below: -1;
+  --z-base: 0;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-popover: 500;
+  --z-toast: 600;
+  --z-tooltip: 700;
+  --z-cursor: 900;
+  --z-top: 9999;
 
-  --radius-none:   0px;
-  --radius-xs:     2px;
-  --radius-sm:     4px;
-  --radius-md:     8px;
-  --radius-lg:     12px;
-  --radius-xl:     16px;
-  --radius-2xl:    20px;
-  --radius-3xl:    24px;
-  --radius-4xl:    32px;
-  --radius-full:   9999px;
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-cinema: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-anticipate: cubic-bezier(0.36, 0, 0.66, -0.56);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --ease-sharp: cubic-bezier(0.4, 0, 0.6, 1);
 
-  /* ─────────────────────────────────────────
-   * SHADOW SYSTEM
-   * Layered, depth-aware shadows
-   * ───────────────────────────────────────── */
+  --duration-instant: 0ms;
+  --duration-75: 75ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-400: 400ms;
+  --duration-500: 500ms;
+  --duration-600: 600ms;
+  --duration-700: 700ms;
+  --duration-800: 800ms;
+  --duration-900: 900ms;
+  --duration-1000: 1000ms;
+  --duration-1200: 1200ms;
+  --duration-1500: 1500ms;
+  --duration-2000: 2000ms;
 
-  --shadow-xs:
-    0 1px 2px rgba(0, 0, 0, 0.5);
+  --transition-micro: var(--duration-100) var(--ease-out);
+  --transition-fast: var(--duration-200) var(--ease-cinema);
+  --transition-base: var(--duration-300) var(--ease-cinema);
+  --transition-slow: var(--duration-500) var(--ease-cinema);
+  --transition-reveal: var(--duration-700) var(--ease-cinema);
+  --transition-page: var(--duration-800) var(--ease-cinema);
 
-  --shadow-sm:
-    0 1px 3px rgba(0, 0, 0, 0.5),
-    0 1px 2px rgba(0, 0, 0, 0.3);
+  --stagger-1: 50ms;
+  --stagger-2: 100ms;
+  --stagger-3: 150ms;
+  --stagger-4: 200ms;
+  --stagger-5: 250ms;
+  --stagger-6: 300ms;
 
-  --shadow-md:
-    0 4px 6px rgba(0, 0, 0, 0.4),
-    0 2px 4px rgba(0, 0, 0, 0.3);
-
-  --shadow-lg:
-    0 10px 15px rgba(0, 0, 0, 0.5),
-    0 4px 6px rgba(0, 0, 0, 0.3);
-
-  --shadow-xl:
-    0 20px 25px rgba(0, 0, 0, 0.5),
-    0 10px 10px rgba(0, 0, 0, 0.2);
-
-  --shadow-2xl:
-    0 25px 50px rgba(0, 0, 0, 0.6);
-
-  --shadow-brand:
-    0 0 0 1px var(--color-border-brand),
-    0 0 20px rgba(99, 68, 245, 0.25),
-    0 0 60px rgba(99, 68, 245, 0.12);
-
-  --shadow-brand-lg:
-    0 0 0 1px var(--color-border-brand),
-    0 0 40px rgba(99, 68, 245, 0.35),
-    0 0 100px rgba(99, 68, 245, 0.18);
-
-  --shadow-glow-accent:
-    0 0 20px rgba(14, 200, 200, 0.30),
-    0 0 60px rgba(14, 200, 200, 0.15);
-
-  --shadow-glass:
-    0 8px 32px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-
-  --shadow-card:
-    0 2px 8px rgba(0, 0, 0, 0.5),
-    0 0 0 1px var(--color-border-subtle),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-
-  /* ─────────────────────────────────────────
-   * Z-INDEX SYSTEM
-   * ───────────────────────────────────────── */
-
-  --z-below:      -1;
-  --z-base:        0;
-  --z-raised:      10;
-  --z-dropdown:    100;
-  --z-sticky:      200;
-  --z-overlay:     300;
-  --z-modal:       400;
-  --z-popover:     500;
-  --z-toast:       600;
-  --z-tooltip:     700;
-  --z-cursor:      900;
-  --z-top:         9999;
-
-  /* ─────────────────────────────────────────
-   * MOTION SYSTEM
-   * Cinematic easing curves and timing tokens
-   * ───────────────────────────────────────── */
-
-  /* Easing curves */
-  --ease-linear:        linear;
-  --ease-in:            cubic-bezier(0.4, 0, 1, 1);
-  --ease-out:           cubic-bezier(0, 0, 0.2, 1);
-  --ease-in-out:        cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Cinematic — signature curves */
-  --ease-cinema:        cubic-bezier(0.16, 1, 0.3, 1);       /* Expo out — snappy reveal */
-  --ease-spring:        cubic-bezier(0.34, 1.56, 0.64, 1);   /* Spring — gentle overshoot */
-  --ease-smooth:        cubic-bezier(0.25, 0.46, 0.45, 0.94);/* Quad out — butter smooth */
-  --ease-anticipate:    cubic-bezier(0.36, 0, 0.66, -0.56);  /* Anticipation */
-  --ease-bounce:        cubic-bezier(0.34, 1.56, 0.64, 1);   /* Bounce overshoot */
-  --ease-decelerate:    cubic-bezier(0, 0, 0.2, 1);          /* Material decelerate */
-  --ease-accelerate:    cubic-bezier(0.4, 0, 1, 1);          /* Material accelerate */
-  --ease-sharp:         cubic-bezier(0.4, 0, 0.6, 1);        /* Sharp */
-
-  /* Duration tokens */
-  --duration-instant:   0ms;
-  --duration-75:        75ms;
-  --duration-100:       100ms;
-  --duration-150:       150ms;
-  --duration-200:       200ms;
-  --duration-300:       300ms;
-  --duration-400:       400ms;
-  --duration-500:       500ms;
-  --duration-600:       600ms;
-  --duration-700:       700ms;
-  --duration-800:       800ms;
-  --duration-900:       900ms;
-  --duration-1000:      1000ms;
-  --duration-1200:      1200ms;
-  --duration-1500:      1500ms;
-  --duration-2000:      2000ms;
-
-  /* Semantic timing */
-  --transition-micro:   var(--duration-100) var(--ease-out);
-  --transition-fast:    var(--duration-200) var(--ease-cinema);
-  --transition-base:    var(--duration-300) var(--ease-cinema);
-  --transition-slow:    var(--duration-500) var(--ease-cinema);
-  --transition-reveal:  var(--duration-700) var(--ease-cinema);
-  --transition-page:    var(--duration-800) var(--ease-cinema);
-
-  /* Stagger delays */
-  --stagger-1:  50ms;
-  --stagger-2:  100ms;
-  --stagger-3:  150ms;
-  --stagger-4:  200ms;
-  --stagger-5:  250ms;
-  --stagger-6:  300ms;
-
-  /* ─────────────────────────────────────────
-   * BLUR SYSTEM
-   * ───────────────────────────────────────── */
-
-  --blur-none:    0px;
-  --blur-sm:      4px;
-  --blur-md:      8px;
-  --blur-lg:      16px;
-  --blur-xl:      24px;
-  --blur-2xl:     40px;
-  --blur-3xl:     64px;
-
-  /* ─────────────────────────────────────────
-   * BREAKPOINTS (reference values — not used directly in CSS)
-   * Use @media queries with these values.
-   * --bp-sm: 640px
-   * --bp-md: 768px
-   * --bp-lg: 1024px
-   * --bp-xl: 1280px
-   * --bp-2xl: 1536px
-   * ───────────────────────────────────────── */
+  --blur-none: 0px;
+  --blur-sm: 4px;
+  --blur-md: 8px;
+  --blur-lg: 16px;
+  --blur-xl: 24px;
+  --blur-2xl: 40px;
+  --blur-3xl: 64px;
 }

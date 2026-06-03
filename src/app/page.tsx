@@ -1,58 +1,63 @@
-/**
- * page.tsx (Home — placeholder)
- * ─────────────────────────────────────────────────────────
- * Autonova AI — Home Page
- * Placeholder until Phase 2 page construction begins.
- * This verifies the foundation wires up correctly.
- * ─────────────────────────────────────────────────────────
- */
+import { TickerStrip } from '@/components/molecules/TickerStrip';
+import { StudioHero } from '@/components/organisms/StudioHero';
+import styles from './page.module.css';
+
+const SECTION_DATA = [
+  {
+    id: 'about',
+    label: 'About',
+    title: 'Just About',
+    body:
+      'Autonova AI turns ambitious product ideas into cinematic digital experiences, blending product strategy, visual direction, and AI implementation into one exacting practice.',
+  },
+  {
+    id: 'services',
+    label: 'Services',
+    title: 'AI product design, interfaces, engineering.',
+    body:
+      'Future section build will expand this service system with radial treatments, oversized copy, and interaction choreography carried from hero.',
+  },
+  {
+    id: 'work',
+    label: 'Work',
+    title: 'Selected systems and high-signal launches.',
+    body:
+      'This anchor is live for nav wiring now. Next pass should become editorial case studies with cropped imagery, structural rules, and restrained motion.',
+  },
+  {
+    id: 'process',
+    label: 'Process',
+    title: 'Research. Shape. Compose. Engineer. Refine.',
+    body:
+      'Recognition label from reference is parked here for now because this first component set focuses on hero and chrome. Later pass can split process and recognition cleanly.',
+  },
+  {
+    id: 'contact',
+    label: 'Contact',
+    title: 'Begin with one hard problem.',
+    body:
+      'hello@autonova.ai / We build precise digital intelligence for teams that want more than polished templates.',
+  },
+];
 
 export default function HomePage() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100svh',
-        fontFamily: 'var(--font-sans)',
-        color: 'var(--color-fg-primary)',
-      }}
-    >
-      <div style={{ textAlign: 'center' }}>
-        <p
-          style={{
-            fontSize: 'var(--text-xs)',
-            fontWeight: 'var(--weight-semibold)',
-            letterSpacing: 'var(--tracking-widest)',
-            textTransform: 'uppercase',
-            color: 'var(--color-brand-400)',
-            marginBottom: 'var(--space-4)',
-          }}
-        >
-          Phase 1 Foundation — Active
-        </p>
-        <h1
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 'var(--text-5xl)',
-            fontWeight: 'var(--weight-black)',
-            lineHeight: 'var(--leading-tight)',
-            letterSpacing: 'var(--tracking-tighter)',
-          }}
-        >
-          Autonova AI
-        </h1>
-        <p
-          style={{
-            marginTop: 'var(--space-4)',
-            color: 'var(--color-fg-secondary)',
-            fontSize: 'var(--text-lg)',
-          }}
-        >
-          Design system loaded. Ready for Phase 2.
-        </p>
-      </div>
+    <div className={styles.page}>
+      <TickerStrip />
+      <StudioHero />
+
+      {SECTION_DATA.map((section) => (
+        <section key={section.id} id={section.id} className={styles.stubSection}>
+          <p className={styles.stubLabel}>{section.label}</p>
+          <h2 className={styles.stubTitle}>{section.title}</h2>
+          <p className={styles.stubBody}>{section.body}</p>
+        </section>
+      ))}
+
+      <footer className={styles.footer}>
+        <p>Autonova AI</p>
+        <p>Single-page reconstruction in progress.</p>
+      </footer>
     </div>
   );
 }

@@ -1,31 +1,8 @@
-/**
- * globals.css
- * ─────────────────────────────────────────────────────────
- * Autonova AI — Global Stylesheet Entry Point
- * Imports all layers in correct cascade order.
- * This is the ONLY file imported directly into layout.tsx.
- * ─────────────────────────────────────────────────────────
- */
-
-/* Layer 1: Design tokens — must be first */
 @import './tokens.css';
-
-/* Layer 2: Reset — normalize before anything else */
 @import './reset.css';
-
-/* Layer 3: Typography — base type setup */
 @import './typography.css';
-
-/* Layer 4: Animations — keyframes & ambient classes */
 @import './animations.css';
-
-/* Layer 5: Utilities — helper classes */
 @import './utilities.css';
-
-/* ─────────────────────────────────────────
- * GLOBAL BASE STYLES
- * Applied after token imports so variables resolve.
- * ───────────────────────────────────────── */
 
 html {
   color-scheme: dark;
@@ -42,47 +19,47 @@ body {
   font-family: var(--font-sans);
   color: var(--color-fg-primary);
   background-color: var(--color-bg-base);
-  /* Prevent layout shift from scrollbar */
+  background-image:
+    radial-gradient(circle at 62% 12%, rgba(255, 255, 255, 0.06), transparent 16%),
+    radial-gradient(circle at 38% 40%, rgba(255, 255, 255, 0.025), transparent 20%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent 30%);
   scrollbar-gutter: stable;
 }
 
-/* ─────────────────────────────────────────
- * APP ROOT
- * ───────────────────────────────────────── */
-
 #root,
 main {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
 }
-
-/* ─────────────────────────────────────────
- * AMBIENT BACKGROUND GLOW
- * Applied globally — creates cinematic depth.
- * ───────────────────────────────────────── */
 
 body::before {
   content: '';
   position: fixed;
-  top: -30%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80vmax;
-  height: 60vmax;
+  inset: -20% -10% auto;
+  height: 52vmax;
   background: radial-gradient(
     ellipse at center,
-    rgba(99, 68, 245, 0.08) 0%,
+    rgba(255, 255, 255, 0.08) 0%,
     transparent 70%
   );
   pointer-events: none;
   z-index: var(--z-below);
+  filter: blur(22px);
 }
 
-/* ─────────────────────────────────────────
- * PROSE CONTENT STYLES
- * Rich text / article content
- * ───────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 100% 100%, 120px 120px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: var(--z-below);
+}
 
 .prose {
   max-width: 68ch;
@@ -114,11 +91,6 @@ body::before {
 .prose a:hover {
   text-decoration-color: currentColor;
 }
-
-/* ─────────────────────────────────────────
- * CUSTOM PROPERTIES COMPUTED AT RUNTIME
- * These react to JS for parallax / scroll
- * ───────────────────────────────────────── */
 
 :root {
   --scroll-y: 0;
