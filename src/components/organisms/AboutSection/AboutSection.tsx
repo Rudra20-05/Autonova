@@ -22,7 +22,7 @@ const FOUNDERS: Founder[] = [
     role: 'Co-Founder',
     initials: 'MS',
     spec: 'Technical Pricing Specialist • Client Relations & Outreach',
-    gradient: 'linear-gradient(135deg, #5A4BD1, #00B4DB)',
+    gradient: 'linear-gradient(135deg, #efece2, #b89b72)',
     linkedin: 'https://linkedin.com',
     instagram: 'https://instagram.com',
   },
@@ -31,7 +31,7 @@ const FOUNDERS: Founder[] = [
     role: 'Founder',
     initials: 'AN',
     spec: 'Full-Stack Architect • System Design & Engineering Lead',
-    gradient: 'linear-gradient(135deg, #6C5CE7, #00D2FF)',
+    gradient: 'linear-gradient(135deg, #d9ddbb, #7e8652)',
     linkedin: 'https://linkedin.com',
     instagram: 'https://instagram.com',
   },
@@ -40,7 +40,7 @@ const FOUNDERS: Founder[] = [
     role: 'Co-Founder',
     initials: 'ZB',
     spec: 'Operations & Strategy • Business Optimization Lead',
-    gradient: 'linear-gradient(135deg, #E55555, #F0B429)',
+    gradient: 'linear-gradient(135deg, #d8d2c3, #b3bb80)',
     linkedin: 'https://linkedin.com',
     instagram: 'https://instagram.com',
   },
@@ -78,48 +78,52 @@ export function AboutSection() {
       });
 
       gsap.fromTo('[data-about-header]',
-        { y: 40, autoAlpha: 0 },
+        { scale: 0.8, y: 100, autoAlpha: 0, filter: 'blur(10px)' },
         {
+          scale: 1,
           y: 0,
           autoAlpha: 1,
-          duration: 1,
-          ease: 'expo.out',
+          filter: 'blur(0px)',
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: rootRef.current,
-            start: 'top 80%',
-            once: true,
+            start: 'top 90%',
+            end: 'top 30%',
+            scrub: 1.2,
           },
         }
       );
 
       gsap.fromTo('[data-about-block]',
-        { y: 40, autoAlpha: 0 },
+        { y: 60, autoAlpha: 0, filter: 'blur(8px)' },
         {
           y: 0,
           autoAlpha: 1,
-          duration: 0.9,
+          filter: 'blur(0px)',
           stagger: 0.15,
-          ease: 'expo.out',
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: rootRef.current,
             start: 'top 75%',
-            once: true,
+            end: 'top 40%',
+            scrub: 1,
           },
         }
       );
 
       gsap.fromTo('[data-about-reveal-line]',
-        { yPercent: 108, rotate: 2 },
+        { yPercent: 120, rotate: 5, autoAlpha: 0 },
         {
           yPercent: 0,
           rotate: 0,
-          duration: 1.1,
+          autoAlpha: 1,
           stagger: 0.12,
-          ease: 'expo.out',
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: rootRef.current,
-            start: 'top 80%',
-            once: true,
+            start: 'top 85%',
+            end: 'top 35%',
+            scrub: 1.2,
           },
         }
       );
@@ -129,16 +133,21 @@ export function AboutSection() {
       missionCards.forEach((card, i) => {
         const fromLeft = i === 0;
         gsap.fromTo(card,
-          { x: fromLeft ? -100 : 100, autoAlpha: 0 },
+          { x: fromLeft ? -100 : 100, y: 50, scale: 0.9, rotateY: fromLeft ? -15 : 15, rotateX: 10, autoAlpha: 0, filter: 'blur(10px)' },
           {
             x: 0,
+            y: 0,
+            scale: 1,
+            rotateY: 0,
+            rotateX: 0,
             autoAlpha: 1,
-            ease: 'power1.out',
+            filter: 'blur(0px)',
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: card,
               start: 'top 95%',
-              end: 'top 50%',
-              scrub: 1,
+              end: 'top 40%',
+              scrub: 1.2,
             }
           }
         );
@@ -149,23 +158,26 @@ export function AboutSection() {
       cards.forEach((card, i) => {
         let xVal = 0;
         let yVal = 0;
-        if (i === 0) xVal = -120; // Left card comes from left
-        if (i === 1) yVal = 120;  // Middle card comes from bottom
-        if (i === 2) xVal = 120;  // Right card comes from right
+        let rotY = 0;
+        if (i === 0) { xVal = -150; yVal = 50; rotY = -20; }
+        if (i === 1) { yVal = 150; rotY = 0; }
+        if (i === 2) { xVal = 150; yVal = 50; rotY = 20; }
 
         gsap.fromTo(card,
-          { x: xVal, y: yVal, autoAlpha: 0, filter: 'blur(4px)' },
+          { x: xVal, y: yVal, rotateY: rotY, scale: 0.8, autoAlpha: 0, filter: 'blur(10px)' },
           {
             x: 0,
             y: 0,
+            rotateY: 0,
+            scale: 1,
             autoAlpha: 1,
             filter: 'blur(0px)',
-            ease: 'power1.out',
+            ease: 'power3.out',
             scrollTrigger: {
               trigger: card,
               start: 'top 95%',
-              end: 'top 60%',
-              scrub: 1,
+              end: 'top 50%',
+              scrub: 1.5,
             }
           }
         );
@@ -217,14 +229,14 @@ export function AboutSection() {
           <h3 className={styles.missionTitle}>Primary Directive</h3>
           <p className={styles.missionBody}>
             Empower organizations of all sizes with accessible, high-performance web
-            solutions — streamlining digital presence, reducing development costs, and
+            solutions - streamlining digital presence, reducing development costs, and
             delivering exceptional user experiences that convert.
           </p>
         </div>
         <div className={styles.missionCard}>
           <h3 className={styles.missionTitle}>Future Protocol</h3>
           <p className={styles.missionBody}>
-            Set the standard as the premier web development partner — driving
+            Set the standard as the premier web development partner - driving
             business growth and digital transformation through cutting-edge
             front-end engineering and scalable full-stack architectures.
           </p>
