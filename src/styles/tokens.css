@@ -18,7 +18,7 @@
 
   --color-editorial: #efece2;
   --color-editorial-soft: #d8d2c3;
-  --color-accent-lime: #c5f135;
+  --color-accent-lime: #b89b72;
 
   --ticker-height: 24px;
 
@@ -56,12 +56,12 @@
   --color-border-subtle: rgba(255, 255, 255, 0.06);
   --color-border-default: rgba(255, 255, 255, 0.1);
   --color-border-strong: rgba(255, 255, 255, 0.18);
-  --color-border-brand: rgba(197, 241, 53, 0.24);
+  --color-border-brand: rgba(184, 155, 114, 0.24);
 
   --gradient-brand: linear-gradient(135deg, var(--color-brand-400) 0%, var(--color-accent-lime) 100%);
-  --gradient-brand-soft: linear-gradient(135deg, rgba(156, 165, 102, 0.12) 0%, rgba(197, 241, 53, 0.1) 100%);
+  --gradient-brand-soft: linear-gradient(135deg, rgba(156, 165, 102, 0.12) 0%, rgba(184, 155, 114, 0.1) 100%);
   --gradient-hero: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-  --gradient-glow-brand: radial-gradient(circle, rgba(197, 241, 53, 0.18) 0%, transparent 70%);
+  --gradient-glow-brand: radial-gradient(circle, rgba(184, 155, 114, 0.18) 0%, transparent 70%);
   --gradient-glow-accent: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
   --gradient-surface: linear-gradient(180deg, #111111 0%, #080808 100%);
   --gradient-noise-overlay: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
@@ -169,8 +169,8 @@
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.2);
   --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.6);
-  --shadow-brand: 0 0 0 1px var(--color-border-brand), 0 0 20px rgba(197, 241, 53, 0.18), 0 0 60px rgba(197, 241, 53, 0.08);
-  --shadow-brand-lg: 0 0 0 1px var(--color-border-brand), 0 0 40px rgba(197, 241, 53, 0.22), 0 0 100px rgba(197, 241, 53, 0.1);
+  --shadow-brand: 0 0 0 1px var(--color-border-brand), 0 0 20px rgba(184, 155, 114, 0.18), 0 0 60px rgba(184, 155, 114, 0.08);
+  --shadow-brand-lg: 0 0 0 1px var(--color-border-brand), 0 0 40px rgba(184, 155, 114, 0.22), 0 0 100px rgba(184, 155, 114, 0.1);
   --shadow-glow-accent: 0 0 20px rgba(255, 255, 255, 0.16), 0 0 60px rgba(255, 255, 255, 0.1);
   --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-border-subtle), inset 0 1px 0 rgba(255, 255, 255, 0.06);
