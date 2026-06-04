@@ -124,12 +124,10 @@ export function StudioHero() {
 
         <div className={styles.editorialColumn}>
           <p className={styles.editorialLead} data-hero-copy>
-            AUTONOVA AI IS A CREATIVE TECHNOLOGY STUDIO BUILDING HIGH-END
-            INTELLIGENT INTERFACES, WEB SYSTEMS, AND AI PRODUCTS.
+            AUTONOVA AI DESIGNS AND DEVELOPS WORLD-CLASS WEBSITES FOR MODERN BRANDS.
           </p>
           <p className={styles.editorialBody} data-hero-copy>
-            We compose precise digital experiences with editorial scale,
-            technical rigor, and controlled atmosphere.
+            Thoughtfully crafted interfaces, seamless user experiences, and scalable digital solutions built for growth.
           </p>
         </div>
 
