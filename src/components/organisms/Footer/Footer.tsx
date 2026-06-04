@@ -58,7 +58,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#work" onClick={(e) => handleLinkClick(e, 'work')} className={`${styles.link} textRollTrigger`}>
-                  <TextRoll text="Selected Cases" />
+                  <TextRoll text="Our Work" />
                 </a>
               </li>
               <li>
