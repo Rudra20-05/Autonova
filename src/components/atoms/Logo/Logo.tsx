@@ -11,14 +11,11 @@ export function Logo({ className, asSpan = false }: LogoProps) {
   const inner = (
     <>
       <span className={styles.mark} aria-hidden="true">
-        <span className={styles.loopOne} />
-        <span className={styles.loopTwo} />
-        <span className={styles.stem} />
+        <img src="/logo.png" alt="Autonova Logo" className={styles.logoImage} />
       </span>
 
       <span className={styles.wordmark}>
         <span className={styles.name}>Autonova AI</span>
-        <span className={styles.tagline}>Digital Intelligence Studio</span>
       </span>
     </>
   );
