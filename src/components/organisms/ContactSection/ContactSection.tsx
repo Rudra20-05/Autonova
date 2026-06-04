@@ -155,8 +155,8 @@ export function ContactSection() {
 
       <div className={styles.emailBlock} data-contact-email>
         <span className={styles.emailKicker}>Client Inquiries</span>
-        <a href="mailto:hello@autonova.ai" className={`${styles.emailLink} textRollTrigger`}>
-          <TextRoll text="hello@autonova.ai" />
+        <a href="mailto:sreejith@aiautonova.com" className={`${styles.emailLink} textRollTrigger`}>
+          <TextRoll text="sreejith@aiautonova.com" />
         </a>
       </div>
 
@@ -180,7 +180,7 @@ export function ContactSection() {
         <div className={styles.gridCol} data-contact-col>
           <span className={styles.colLabel}>Connect</span>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/autonova-ai/"
             target="_blank"
             rel="noopener noreferrer"
             className={`${styles.socialLink} textRollTrigger`}
@@ -188,7 +188,7 @@ export function ContactSection() {
             <TextRoll text="LinkedIn" /> <span className={styles.arrow}>↗</span>
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/autonova_ai?igsh=MTZuanFrNzgxZDN0dQ=="
             target="_blank"
             rel="noopener noreferrer"
             className={`${styles.socialLink} textRollTrigger`}

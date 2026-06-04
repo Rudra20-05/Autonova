@@ -74,12 +74,12 @@ export function Footer() {
             <span className={styles.colLabel}>Connect</span>
             <ul className={styles.linksList}>
               <li>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className={`${styles.link} textRollTrigger`}>
+                <a href="https://www.linkedin.com/company/autonova-ai/" target="_blank" rel="noopener noreferrer" className={`${styles.link} textRollTrigger`}>
                   <TextRoll text="LinkedIn" /> ↗
                 </a>
               </li>
               <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={`${styles.link} textRollTrigger`}>
+                <a href="https://www.instagram.com/autonova_ai?igsh=MTZuanFrNzgxZDN0dQ==" target="_blank" rel="noopener noreferrer" className={`${styles.link} textRollTrigger`}>
                   <TextRoll text="Instagram" /> ↗
                 </a>
               </li>
