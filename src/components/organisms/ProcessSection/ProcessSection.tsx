@@ -96,13 +96,18 @@ export function ProcessSection() {
         }
       );
 
+      const isMobile = window.innerWidth < 768;
+
       const steps = rootRef.current!.querySelectorAll('[data-step]');
       steps.forEach((step, i) => {
         const fromLeft = i % 2 === 0;
+        const xOffset = isMobile ? 0 : (fromLeft ? -120 : 120);
+        const yOffset = isMobile ? 30 : 0;
         gsap.fromTo(step,
-          { x: fromLeft ? -120 : 120, autoAlpha: 0 },
+          { x: xOffset, y: yOffset, autoAlpha: 0 },
           {
             x: 0,
+            y: 0,
             autoAlpha: 1,
             ease: 'power1.out',
             scrollTrigger: {

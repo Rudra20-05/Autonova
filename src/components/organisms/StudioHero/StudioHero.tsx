@@ -12,6 +12,45 @@ export function StudioHero() {
   useEffect(() => {
     if (!rootRef.current || prefersReducedMotion) return;
 
+    // Mouse move parallax handler
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const xPos = (clientX / window.innerWidth - 0.5) * 2;
+      const yPos = (clientY / window.innerHeight - 0.5) * 2;
+
+      gsap.to('[data-mouse-parallax="copy"]', {
+        x: xPos * 14,
+        y: yPos * 8,
+        duration: 1.2,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+
+      gsap.to('[data-mouse-parallax="letters"]', {
+        x: xPos * -20,
+        y: yPos * -12,
+        duration: 1.4,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+
+      gsap.to('[data-mouse-parallax="bg-fast"]', {
+        x: xPos * 25,
+        y: yPos * 16,
+        duration: 1.6,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+
+      gsap.to('[data-mouse-parallax="bg-slow"]', {
+        x: xPos * 8,
+        y: yPos * 6,
+        duration: 2,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+    };
+
     const context = gsap.context(() => {
       const timeline = gsap.timeline({ defaults: { ease: 'expo.out' } });
 
@@ -74,7 +113,10 @@ export function StudioHero() {
       });
     }, rootRef);
 
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
     return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
       context.revert();
       ScrollTrigger.refresh();
     };
@@ -87,13 +129,13 @@ export function StudioHero() {
       className={styles.hero}
       aria-labelledby="hero-title"
     >
-      <div className={styles.bgTexture} data-parallax="slow" aria-hidden="true" />
-      <div className={styles.bgFoldLeft} data-parallax="fast" aria-hidden="true" />
-      <div className={styles.bgFoldRight} data-parallax="slow" aria-hidden="true" />
+      <div className={styles.bgTexture} data-parallax="slow" data-mouse-parallax="bg-slow" aria-hidden="true" />
+      <div className={styles.bgFoldLeft} data-parallax="fast" data-mouse-parallax="bg-fast" aria-hidden="true" />
+      <div className={styles.bgFoldRight} data-parallax="slow" data-mouse-parallax="bg-slow" aria-hidden="true" />
       <div className={styles.diagonalLineOne} data-hero-ornament aria-hidden="true" />
       <div className={styles.diagonalLineTwo} data-hero-ornament aria-hidden="true" />
 
-      <div className={styles.headlineStage} aria-hidden="true">
+      <div className={styles.headlineStage} data-mouse-parallax="letters" aria-hidden="true">
         <div className={styles.wordMaskAuto}>
           <p className={styles.wordAuto} data-hero-line>
             AUTO
@@ -113,7 +155,7 @@ export function StudioHero() {
         </div>
       </div>
 
-      <div className={styles.copyBlock}>
+      <div className={styles.copyBlock} data-mouse-parallax="copy">
         <p className={styles.kicker} data-hero-copy>
           AUTONOVA AI / DIGITAL INTELLIGENCE STUDIO
         </p>
@@ -138,7 +180,7 @@ export function StudioHero() {
         </a>
       </div>
 
-      <div className={styles.homeWheel} data-hero-ornament aria-hidden="true">
+      <div className={styles.homeWheel} data-hero-ornament data-mouse-parallax="bg-slow" aria-hidden="true">
         <span className={styles.sunCore} />
         {Array.from({ length: 36 }).map((_, index) => (
           <span

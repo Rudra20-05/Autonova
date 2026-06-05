@@ -76,7 +76,7 @@
 
 .headlineStage {
   position: relative;
-  z-index: 1;
+  z-index: 0;
   height: calc(100svh - 10rem);
   min-height: 620px;
 }
@@ -156,7 +156,7 @@
 .copyBlock {
   position: absolute;
   inset: calc(var(--ticker-height) + 11.5rem) 0 0 0;
-  z-index: 2;
+  z-index: 10;
   display: grid;
   grid-template-columns: 1fr minmax(18rem, 22rem) 11rem;
   align-items: start;
@@ -177,8 +177,11 @@
 
 .editorialColumn {
   grid-column: 2;
-  margin-top: 10.5rem;
+  margin-top: 8.5rem;
   max-width: 18rem;
+  position: relative;
+  z-index: 12;
+  animation: drift-editorial 24s ease-in-out infinite;
 }
 
 .editorialLead,
@@ -197,7 +200,7 @@
 .editorialBody {
   margin-top: 1rem;
   line-height: 1.18;
-  color: rgba(239, 237, 228, 0.44);
+  color: rgba(239, 237, 228, 0.65);
 }
 
 .showreelLink {
@@ -228,6 +231,7 @@
   width: clamp(8rem, 13vw, 11rem);
   aspect-ratio: 1;
   z-index: 2;
+  animation: rotate-slow 45s linear infinite;
 }
 
 .sunCore {
@@ -290,7 +294,7 @@
     top: 3rem;
     left: 8%;
     width: 86%;
-    height: 11rem;
+    height: 1.3em;
   }
 
   .wordMaskNova {
@@ -298,23 +302,41 @@
     right: 1rem;
     bottom: 8rem;
     width: auto;
-    height: 11rem;
+    height: 1.3em;
   }
 
   .wordMaskAi {
     right: 1rem;
     bottom: 2.5rem;
     width: 24%;
-    height: 9rem;
+    height: 1.3em;
+  }
+
+  .wordAuto,
+  .wordNova,
+  .wordAi {
+    line-height: 1.05;
+  }
+
+  .wordAuto {
+    top: 0.1em;
+  }
+
+  .wordNova {
+    bottom: 0.1em;
+  }
+
+  .wordAi {
+    bottom: 0.1em;
   }
 
   .wordAuto,
   .wordNova {
-    font-size: clamp(6.8rem, 20vw, 11rem);
+    font-size: clamp(5.5rem, 16vw, 9.5rem);
   }
 
   .wordAi {
-    font-size: clamp(4rem, 11vw, 6rem);
+    font-size: clamp(3rem, 10vw, 5.5rem);
   }
 
   .copyBlock {
@@ -350,48 +372,66 @@
 
 @media (max-width: 640px) {
   .hero {
-    padding-inline: 1rem;
-    padding-top: calc(var(--ticker-height) + 4rem);
+    padding-inline: 1.25rem;
+    padding-top: calc(var(--ticker-height) + 3rem);
   }
 
   .headlineStage {
-    min-height: 28rem;
+    min-height: 24rem;
   }
 
   .wordMaskAuto {
-    top: 2.8rem;
+    top: 2rem;
     left: 4%;
     width: 92%;
-    height: 8rem;
+    height: 1.3em;
   }
 
   .wordMaskNova {
     left: 0;
     width: 84%;
-    height: 8.5rem;
-    bottom: 7rem;
+    height: 1.3em;
+    bottom: 5.5rem;
   }
 
   .wordMaskAi {
     width: 28%;
-    height: 6rem;
-    bottom: 2.8rem;
+    height: 1.3em;
+    bottom: 2.2rem;
     right: 0.3rem;
   }
 
   .wordAuto,
+  .wordNova,
+  .wordAi {
+    line-height: 1.05;
+  }
+
+  .wordAuto {
+    top: 0.1em;
+  }
+
   .wordNova {
-    font-size: 6.8rem;
+    bottom: 0.1em;
   }
 
   .wordAi {
-    font-size: 3.6rem;
+    bottom: 0.1em;
+  }
+
+  .wordAuto,
+  .wordNova {
+    font-size: clamp(3.8rem, 17vw, 6.8rem);
+  }
+
+  .wordAi {
+    font-size: clamp(2rem, 9vw, 3.6rem);
   }
 
   .homeWheel {
-    width: 5.7rem;
+    width: 5.2rem;
     right: 0.4rem;
-    bottom: 1.8rem;
+    bottom: 1.4rem;
   }
 
   .diagonalLineOne {
@@ -403,8 +443,24 @@
   }
 }
 
+@keyframes drift-editorial {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(1.4rem, -1rem);
+  }
+  66% {
+    transform: translate(-1rem, 1.4rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .showreelLink {
     transition: none;
+  }
+  .editorialColumn,
+  .homeWheel {
+    animation: none !important;
   }
 }

@@ -116,8 +116,48 @@ export default function RootLayout({ children }: RootLayoutProps) {
           href="https://fonts.googleapis.com/css2?family=Asimovian&display=swap"
           rel="stylesheet"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const clean = (el) => {
+                  if (!el) return;
+                  if (el.removeAttribute) {
+                    el.removeAttribute('bis_skin_checked');
+                    el.removeAttribute('bis_register');
+                    for (const attr of el.getAttributeNames?.() || []) {
+                      if (attr.startsWith('__processed_')) {
+                        el.removeAttribute(attr);
+                      }
+                    }
+                  }
+                };
+                const observer = new MutationObserver((mutations) => {
+                  for (const m of mutations) {
+                    clean(m.target);
+                    m.addedNodes?.forEach(n => {
+                      if (n.nodeType === 1) {
+                        clean(n);
+                        n.querySelectorAll?.('[bis_skin_checked], [bis_register]').forEach(clean);
+                      }
+                    });
+                  }
+                });
+                observer.observe(document.documentElement, {
+                  attributes: true,
+                  childList: true,
+                  subtree: true,
+                  attributeFilter: ['bis_skin_checked', 'bis_register']
+                });
+                document.addEventListener('DOMContentLoaded', () => {
+                  document.querySelectorAll('[bis_skin_checked], [bis_register]').forEach(clean);
+                });
+              })();
+            `
+          }}
+        />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <div className="noise-overlay" aria-hidden="true" role="presentation" />
 
         <SmoothScrollProvider>

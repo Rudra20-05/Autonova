@@ -112,13 +112,18 @@ export function WorkSection() {
         }
       );
 
+      const isMobile = window.innerWidth < 768;
+
       const cards = rootRef.current!.querySelectorAll('[data-case-card]');
       cards.forEach((card, i) => {
         const fromLeft = i % 2 === 0;
+        const xOffset = isMobile ? 0 : (fromLeft ? -160 : 160);
+        const yOffset = isMobile ? 40 : 0;
         gsap.fromTo(card,
-          { x: fromLeft ? -160 : 160, autoAlpha: 0, filter: 'blur(8px)' },
+          { x: xOffset, y: yOffset, autoAlpha: 0, filter: 'blur(8px)' },
           {
             x: 0,
+            y: 0,
             autoAlpha: 1,
             filter: 'blur(0px)',
             ease: 'power1.out',

@@ -281,6 +281,16 @@
 }
 
 @media (max-width: 768px) {
+  .headerWrap {
+    min-height: clamp(12rem, 24vw, 18rem);
+    margin-bottom: var(--space-8);
+  }
+
+  .sunBackground {
+    width: clamp(14rem, 42vw, 24rem);
+    height: clamp(14rem, 42vw, 24rem);
+  }
+
   .missionGrid {
     grid-template-columns: 1fr;
   }

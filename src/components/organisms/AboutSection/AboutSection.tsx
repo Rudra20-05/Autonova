@@ -124,14 +124,19 @@ export function AboutSection() {
         }
       );
 
+      const isMobile = window.innerWidth < 768;
+
       // Mission Cards slide in from left/right on scroll (scrubbed)
       const missionCards = rootRef.current!.querySelectorAll(`.${styles.missionCard}`);
       missionCards.forEach((card, i) => {
         const fromLeft = i === 0;
+        const xOffset = isMobile ? 0 : (fromLeft ? -100 : 100);
+        const yOffset = isMobile ? 40 : 0;
         gsap.fromTo(card,
-          { x: fromLeft ? -100 : 100, autoAlpha: 0 },
+          { x: xOffset, y: yOffset, autoAlpha: 0 },
           {
             x: 0,
+            y: 0,
             autoAlpha: 1,
             ease: 'power1.out',
             scrollTrigger: {
@@ -149,9 +154,13 @@ export function AboutSection() {
       cards.forEach((card, i) => {
         let xVal = 0;
         let yVal = 0;
-        if (i === 0) xVal = -120; // Left card comes from left
-        if (i === 1) yVal = 120;  // Middle card comes from bottom
-        if (i === 2) xVal = 120;  // Right card comes from right
+        if (isMobile) {
+          yVal = 40;
+        } else {
+          if (i === 0) xVal = -120; // Left card comes from left
+          if (i === 1) yVal = 120;  // Middle card comes from bottom
+          if (i === 2) xVal = 120;  // Right card comes from right
+        }
 
         gsap.fromTo(card,
           { x: xVal, y: yVal, autoAlpha: 0, filter: 'blur(4px)' },

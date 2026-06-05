@@ -244,6 +244,18 @@
   margin-top: var(--space-4);
 }
 
+@media (max-width: 768px) {
+  .headerWrap {
+    min-height: clamp(14rem, 24vw, 20rem);
+    margin-bottom: var(--space-8);
+  }
+
+  .sunBackground {
+    width: clamp(14rem, 40vw, 24rem);
+    height: clamp(14rem, 40vw, 24rem);
+  }
+}
+
 @media (max-width: 640px) {
   .caseHeader {
     flex-direction: column;
