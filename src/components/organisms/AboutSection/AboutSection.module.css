@@ -65,9 +65,9 @@
 .headerWrap {
   position: relative;
   text-align: center;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-8);
   padding-inline: clamp(1rem, 4vw, 4rem);
-  min-height: clamp(22rem, 30vw, 32rem);
+  min-height: clamp(14rem, 20vw, 24rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -139,6 +139,7 @@
   gap: var(--space-8);
   max-width: 56rem;
   margin: 0 auto var(--space-20);
+  perspective: 1000px;
 }
 
 .missionCard {
@@ -186,6 +187,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
+  perspective: 1200px;
 }
 
 .founderCard {
@@ -228,10 +230,10 @@
 }
 
 .founderName {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: var(--tracking-wider);
+  font-family: 'Asimovian', sans-serif;
+  font-size: var(--text-xl);
+  font-weight: 400;
+  letter-spacing: normal;
   text-transform: uppercase;
   color: var(--color-editorial);
   margin-bottom: var(--space-1);

@@ -15,9 +15,7 @@ const PRIMARY_LINKS: NavItem[] = [
   { href: '#contact', label: 'Contact' },
 ];
 
-const SECONDARY_LINKS: NavItem[] = [{ href: '#home', label: 'Archive' }];
-
-const ALL_LINKS = [...PRIMARY_LINKS, ...SECONDARY_LINKS];
+const ALL_LINKS = [...PRIMARY_LINKS];
 
 const EASE_CINEMA = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -143,34 +141,7 @@ export function Navbar() {
               </motion.li>
             ))}
 
-            <li className={styles.navDivider} aria-hidden="true" role="separator" />
 
-            {SECONDARY_LINKS.map((link, index) => (
-              <motion.li
-                key={link.href}
-                custom={PRIMARY_LINKS.length + index + 1}
-                variants={navItemVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                <a
-                  href={link.href}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    handleAnchorClick(link.href);
-                  }}
-                  className={cn(
-                    styles.navLink,
-                    styles.secondary,
-                    'textRollTrigger',
-                    activeHref === link.href && styles.active,
-                  )}
-                  aria-current={activeHref === link.href ? 'page' : undefined}
-                >
-                  <TextRoll text={link.label} />
-                </a>
-              </motion.li>
-            ))}
           </ul>
         </nav>
 

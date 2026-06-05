@@ -161,10 +161,10 @@ export function WorkSection() {
 
         <h2 id="work-title" className={styles.sectionTitle}>
           <span style={{ display: 'block', overflow: 'hidden' }}>
-            <span style={{ display: 'inline-block' }} data-work-reveal-line>SELECTED</span>
+            <span style={{ display: 'inline-block' }} data-work-reveal-line>OUR</span>
           </span>
           <span style={{ display: 'block', overflow: 'hidden' }}>
-            <span style={{ display: 'inline-block' }} data-work-reveal-line>CASES</span>
+            <span style={{ display: 'inline-block' }} data-work-reveal-line>WORK</span>
           </span>
         </h2>
         <div className={styles.dividerLine} aria-hidden="true" />
@@ -202,7 +202,7 @@ export function WorkSection() {
               </a>
             )}
 
-            <div className={styles.caseResult}>📊 {project.result}</div>
+            <div className={styles.caseResult}>{project.result}</div>
           </article>
         ))}
       </div>

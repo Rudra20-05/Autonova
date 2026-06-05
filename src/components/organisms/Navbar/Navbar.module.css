@@ -7,7 +7,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: var(--space-6) var(--space-8);
+  padding: var(--space-6) var(--space-12) var(--space-6) var(--space-8);
   pointer-events: none;
   transition:
     background-color var(--transition-slow),
@@ -86,18 +86,6 @@
   border-radius: var(--radius-xs);
 }
 
-.navLink.secondary {
-  margin-top: var(--space-5);
-  color: var(--color-editorial-soft);
-}
-
-.navLink.secondary::after {
-  background: var(--color-editorial-soft);
-}
-
-.navLink.secondary:hover {
-  color: var(--color-accent-lime);
-}
 
 .hamburger {
   display: none;

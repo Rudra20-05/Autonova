@@ -1,10 +1,8 @@
 import styles from './TickerStrip.module.css';
 
 const TICKER_ITEMS = [
-  'Autonova AI Archive',
   'Intelligent Interfaces',
   'Creative Systems',
-  'Digital Intelligence',
   'Web Engineering',
   'AI Product Design',
 ];
