@@ -38,11 +38,9 @@ body::before {
   position: fixed;
   inset: -20% -10% auto;
   height: 52vmax;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 0.08) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(ellipse at center,
+      rgba(255, 255, 255, 0.08) 0%,
+      transparent 70%);
   pointer-events: none;
   z-index: var(--z-below);
   filter: blur(22px);
@@ -67,12 +65,12 @@ body::after {
   line-height: var(--leading-relaxed);
 }
 
-.prose p + p {
+.prose p+p {
   margin-top: var(--space-4);
 }
 
-.prose h2 + p,
-.prose h3 + p {
+.prose h2+p,
+.prose h3+p {
   margin-top: var(--space-3);
 }
 
