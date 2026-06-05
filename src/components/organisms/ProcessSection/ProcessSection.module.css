@@ -42,7 +42,8 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 3rem; /* Perfectly centered between step index (6rem wide) and content */
+  left: 3rem;
+  /* Perfectly centered between step index (6rem wide) and content */
   width: 1px;
   background: var(--color-border-subtle);
   pointer-events: none;
@@ -57,7 +58,8 @@
   height: 100%;
   background: linear-gradient(180deg, var(--color-accent-lime), transparent);
   transform-origin: top;
-  transform: scaleY(0); /* Controlled by GSAP */
+  transform: scaleY(0);
+  /* Controlled by GSAP */
 }
 
 .bgWatermark {

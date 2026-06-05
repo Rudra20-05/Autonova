@@ -10,7 +10,7 @@
   position: absolute;
   inset: 0;
   background-size: 80px 80px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.008) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.008) 1px, transparent 1px);
   pointer-events: none;
@@ -58,6 +58,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -146,7 +147,9 @@
 }
 
 @keyframes rotateSun {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .emailBlock {
@@ -261,7 +264,9 @@
     font-size: clamp(2rem, 8vw, 3.2rem);
   }
 
-  .line1, .line3, .line4 {
+  .line1,
+  .line3,
+  .line4 {
     display: block;
     text-align: center;
     padding-left: 0 !important;

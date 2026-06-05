@@ -30,12 +30,10 @@
   filter: blur(4px);
   opacity: 0.28;
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       rgba(255, 255, 255, 0.05) 0%,
       rgba(255, 255, 255, 0.006) 70%,
-      transparent 100%
-    );
+      transparent 100%);
 }
 
 .bgFoldLeft {
@@ -444,12 +442,16 @@
 }
 
 @keyframes drift-editorial {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0);
   }
+
   33% {
     transform: translate(1.4rem, -1rem);
   }
+
   66% {
     transform: translate(-1rem, 1.4rem);
   }
@@ -459,6 +461,7 @@
   .showreelLink {
     transition: none;
   }
+
   .editorialColumn,
   .homeWheel {
     animation: none !important;
