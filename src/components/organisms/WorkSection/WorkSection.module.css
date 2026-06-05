@@ -9,7 +9,7 @@
   position: absolute;
   inset: 0;
   background-size: 80px 80px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
   pointer-events: none;
@@ -69,9 +69,12 @@
 }
 
 @keyframes bounceHand {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(10px) rotate(-1deg);
   }
@@ -91,7 +94,9 @@
 }
 
 @keyframes rotateSun {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .sectionTitle {
