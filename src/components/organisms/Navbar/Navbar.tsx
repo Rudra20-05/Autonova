@@ -39,7 +39,15 @@ export function Navbar() {
   const hamburgerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 48);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 48);
+      
+      // Force active section to Contact when at the bottom of the page
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+      if (isAtBottom) {
+        setActiveHref('#contact');
+      }
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -68,6 +76,13 @@ export function Navbar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        // If we are at the very bottom of the page, force active section to Contact
+        const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+        if (isAtBottom) {
+          setActiveHref('#contact');
+          return;
+        }
+
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -89,6 +104,7 @@ export function Navbar() {
 
   const handleAnchorClick = (href: string) => {
     setMenuOpen(false);
+    setActiveHref(href);
 
     const target = document.getElementById(href.replace('#', ''));
     if (!target) return;
